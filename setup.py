@@ -21,13 +21,13 @@ def isOpen(ip, port):
         s.connect((ip, int(port)))
         s.shutdown(2)
         msg(ip + ' is open on ' + str(port), 1)
-        fos = open('success.txt', 'a')
+        fos = open('./res/success.txt', 'a')
         fos.write(ip + '\r')
         fos.close()
         return True
     except:
         msg(ip + ' is down on ' + str(port), 2)
-        fos = open('fail.txt', 'a')
+        fos = open('./res/fail.txt', 'a')
         fos.write(ip + '\r')
         fos.close()
         return False
@@ -76,7 +76,7 @@ def process_data(threadName, q):
         time.sleep(1)
 
 
-threadList = np.arange(0, 100)
+threadList = np.arange(0, 500)
 nameList = ipList
 queueLock = threading.Lock()
 workQueue = Queue.Queue(0)
